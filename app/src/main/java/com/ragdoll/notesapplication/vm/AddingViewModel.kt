@@ -1,7 +1,6 @@
 package com.ragdoll.notesapplication.vm
 
 import android.app.Application
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.ragdoll.notesapplication.data.model.Note
 import kotlinx.coroutines.launch

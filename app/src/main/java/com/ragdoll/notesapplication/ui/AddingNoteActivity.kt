@@ -1,4 +1,4 @@
-package com.ragdoll.notesapplication
+package com.ragdoll.notesapplication.ui
 
 import android.os.Bundle
 import android.widget.Toast
@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
+import com.ragdoll.notesapplication.R
 import com.ragdoll.notesapplication.data.model.Note
 import com.ragdoll.notesapplication.databinding.ActivityAddingNoteBinding
 import com.ragdoll.notesapplication.vm.AddingViewModel

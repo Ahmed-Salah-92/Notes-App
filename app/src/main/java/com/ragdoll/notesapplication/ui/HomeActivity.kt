@@ -1,4 +1,4 @@
-package com.ragdoll.notesapplication
+package com.ragdoll.notesapplication.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,20 +10,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
+import com.ragdoll.notesapplication.R
 import com.ragdoll.notesapplication.data.model.Note
-import com.ragdoll.notesapplication.databinding.ActivityMainBinding
-import com.ragdoll.notesapplication.vm.NoteViewModel
+import com.ragdoll.notesapplication.databinding.ActivityHomeBinding
+import com.ragdoll.notesapplication.vm.HomeViewModel
 
 class HomeActivity : AppCompatActivity() {
-    private var _binding: ActivityMainBinding? = null
+    private var _binding: ActivityHomeBinding? = null
     private val binding get() = _binding!!
-    private lateinit var viewModel: NoteViewModel
+    private lateinit var viewModel: HomeViewModel
     private lateinit var notes: List<Note>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        _binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -31,7 +32,7 @@ class HomeActivity : AppCompatActivity() {
             insets
         }
 
-        viewModel = ViewModelProvider(this)[NoteViewModel::class.java]
+        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         // Observe the notes LiveData from the ViewModel
         viewModel.getNotes().observe(this) { notes ->
             // Update the UI with the list of notes

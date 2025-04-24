@@ -2,9 +2,10 @@ package com.ragdoll.notesapplication.vm
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
 import com.ragdoll.notesapplication.data.NoteRepositoryImpl
-import com.ragdoll.notesapplication.data.model.Note
 import com.ragdoll.notesapplication.data.model.RoomDBHelper
+import kotlinx.coroutines.launch
 
 class NoteViewModel(app: Application) : AndroidViewModel(app) {
 
@@ -16,5 +17,5 @@ class NoteViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     fun getNotes() = repository.getNotes()
-    fun deleteAllNotes() = repository.deleteAllNotes()
+    fun deleteAllNotes() = viewModelScope.launch { repository.deleteAllNotes() }
 }

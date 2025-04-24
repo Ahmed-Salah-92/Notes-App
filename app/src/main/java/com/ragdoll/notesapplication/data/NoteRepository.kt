@@ -4,12 +4,12 @@ import androidx.lifecycle.LiveData
 import com.ragdoll.notesapplication.data.model.Note
 
 interface NoteRepository {
-    fun upsertNote(note: Note)
+   suspend fun upsertNote(note: Note)
 
     fun getNotes(): LiveData<List<Note>>
 
-    fun deleteNote(note: Note)
+   suspend fun deleteNote(note: Note)
 
-    fun deleteAllNotes()
+   suspend fun deleteAllNotes()
 
 }

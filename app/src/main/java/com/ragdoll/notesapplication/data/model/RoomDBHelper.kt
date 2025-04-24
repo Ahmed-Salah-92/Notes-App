@@ -1,4 +1,4 @@
-package com.ragdoll.notesapplication
+package com.ragdoll.notesapplication.data.model
 
 import android.content.Context
 import androidx.room.Database

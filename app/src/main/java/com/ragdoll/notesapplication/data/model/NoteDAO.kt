@@ -1,4 +1,4 @@
-package com.ragdoll.notesapplication
+package com.ragdoll.notesapplication.data.model
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

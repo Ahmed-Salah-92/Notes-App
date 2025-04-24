@@ -6,15 +6,15 @@ import com.ragdoll.notesapplication.data.NoteRepositoryImpl
 import com.ragdoll.notesapplication.data.model.Note
 import com.ragdoll.notesapplication.data.model.RoomDBHelper
 
-class NoteViewModel(app: Application) : AndroidViewModel(app) {
-
+class EditingViewModel(app: Application) : AndroidViewModel(app) {
     private val repository: NoteRepositoryImpl
 
     init {
-        val db = RoomDBHelper.Companion.getInstance(app)
+        val db = RoomDBHelper.getInstance(app)
         repository = NoteRepositoryImpl(db.dao)
     }
 
-    fun getNotes() = repository.getNotes()
-    fun deleteAllNotes() = repository.deleteAllNotes()
+    // Update Note
+    fun upsertNote(note: Note) = repository.upsertNote(note)
+    fun deleteNote(note: Note) = repository.deleteNote(note)
 }
